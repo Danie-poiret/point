@@ -2,27 +2,39 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Graphique Points & Figures - CAC 40</title>
+    <title>Graphiques Points & Figures - CAC 40</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <canvas id="chart"></canvas>
+    <h1>Graphiques Points & Figures - CAC 40</h1>
+    <div id="charts"></div>
 
     <script>
-        fetch("data.json") // 🔹 Récupère les données hébergées sur GitHub
+        fetch("data.json") // 🔹 Charge les données JSON
             .then(response => response.json())
-            .then(chart => {
-                let ctx = document.getElementById("chart").getContext("2d");
-                new Chart(ctx, {
-                    type: "bar",
-                    data: {
-                        labels: chart.map((col, i) => "Col " + i),
-                        datasets: [{
-                            label: "Points & Figures CAC 40",
-                            data: chart.map(col => col.length),
-                            backgroundColor: chart.map(col => col.includes("X") ? "blue" : "red")
-                        }]
-                    }
+            .then(data => {
+                let chartsDiv = document.getElementById("charts");
+
+                Object.keys(data).forEach(action => {
+                    let canvas = document.createElement("canvas");
+                    canvas.width = 400;
+                    canvas.height = 200;
+                    canvas.id = action;
+                    chartsDiv.appendChild(canvas);
+
+                    let ctx = canvas.getContext("2d");
+                    new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: data[action].map((_, i) => i),
+                            datasets: [{
+                                label: action,
+                                data: data[action],
+                                borderColor: "blue",
+                                borderWidth: 2
+                            }]
+                        }
+                    });
                 });
             });
     </script>
