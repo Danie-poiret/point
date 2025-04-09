@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Graphique Points & Figures - CAC 40</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="chart"></canvas>
+
+    <script>
+        fetch("data.json") // 🔹 Récupère les données hébergées sur GitHub
+            .then(response => response.json())
+            .then(chart => {
+                let ctx = document.getElementById("chart").getContext("2d");
+                new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: chart.map((col, i) => "Col " + i),
+                        datasets: [{
+                            label: "Points & Figures CAC 40",
+                            data: chart.map(col => col.length),
+                            backgroundColor: chart.map(col => col.includes("X") ? "blue" : "red")
+                        }]
+                    }
+                });
+            });
+    </script>
+</body>
+</html>
