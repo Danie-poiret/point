@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Graphiques Points & Figures - CAC 40</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Découvrir Nyons - Drôme Provençale Authentique</title>
+  <meta name="description" content="Pars à la découverte de Nyons, petit coin ensoleillé de la Drôme Provençale : marché, huile d’olive, lavande, brocantes, randos, tout y est pour déconnecter.">
+  <meta name="author" content="Un amoureux de Nyons" />
+  <meta name="robots" content="index, follow" />
 </head>
 <body>
-    <h1>Graphiques Points & Figures - CAC 40</h1>
-    <div id="charts"></div>
+  <header>
+    <h1>Découvre Nyons, tranquille au soleil 🌿</h1>
+  </header>
 
-    <script>
-        fetch("data.json") // 🔹 Charge les données JSON
-            .then(response => response.json())
-            .then(data => {
-                let chartsDiv = document.getElementById("charts");
+  <main>
+    <article>
+      <p>
+        Franchement, si t’en as marre de la foule, du stress, et du bruit, viens faire un tour à <strong>Nyons</strong>.
+        C’est un p’tit coin peinard dans la Drôme provençale, où le temps s’étire tranquille, un peu comme un chat au soleil.
+        Y’a pas de métro qui grince, pas de coups de klaxon, juste des cigales, de l’huile d’olive qui sent bon, et des gens qui prennent encore le temps de vivre.
+        Pas pour rien qu’on l’appelle <em>le petit Nice</em>.
+      </p>
 
-                Object.keys(data).forEach(action => {
-                    let canvas = document.createElement("canvas");
-                    canvas.width = 400;
-                    canvas.height = 200;
-                    canvas.id = action;
-                    chartsDiv.appendChild(canvas);
+      <p>
+        Tu veux découvrir ce coin-là ? Jette un œil ici :
+        <a href="https://www.nyons.com/decouvrir-nyons" target="_blank">nyons.com</a>.
+        Entre les ruelles pavées, les placettes à l’ombre des platanes, et le pont roman qui tient debout depuis des siècles, t’as de quoi t’occuper sans t’ennuyer.
+      </p>
 
-                    let ctx = canvas.getContext("2d");
-                    new Chart(ctx, {
-                        type: "line",
-                        data: {
-                            labels: data[action].map((_, i) => i),
-                            datasets: [{
-                                label: action,
-                                data: data[action],
-                                borderColor: "blue",
-                                borderWidth: 2
-                            }]
-                        }
-                    });
-                });
-            });
-    </script>
+      <p>
+        Et alors, le <strong>marché de Nyons</strong>… comment te dire… c’est pas juste un marché, c’est une institution.
+        Tous les jeudis, ça sent les herbes de Provence, le fromage de chèvre, les olives… la vraie vie quoi.
+        Si t’as envie de goûter à l’ambiance locale, c’est ici :
+        <a href="https://www.vivreanyons.fr/que-faire-nyons/Marche-de-Nyons" target="_blank">Marché de Nyons</a>.
+      </p>
+
+      <p>
+        Pas loin de là, t’as la <a href="https://www.vivreanyons.fr/que-faire-nyons/savonnerie-de-nyons" target="_blank">Savonnerie de Nyons</a>.
+        Des savons artisanaux, faits avec l’huile d’olive locale. Rien que l’odeur, tu pars déjà en vacances.
+      </p>
+
+      <p>
+        T’aimes chiner ? Mate les <a href="https://www.vivreanyons.fr/evenements-nyons/Brocantes--Vides-greniers-Nyons" target="_blank">brocantes et vide-greniers</a>.
+        Une ambiance sympa, des trouvailles à l’ancienne, et pas besoin de casser la tirelire.
+      </p>
+
+      <p>
+        Pour tes papilles, t’as pas mieux que l’<a href="https://www.vivreanyons.fr/produits-du-terroir/Huile-olive-de-Nyons" target="_blank">huile d’olive de Nyons</a>.
+        C’est du vrai, du pur, du bon. Et tant qu’à faire, respire un bon coup au milieu des champs de
+        <a href="https://www.vivreanyons.fr/produits-du-terroir/Lavande-de-Nyons" target="_blank">lavande</a>.
+        En été, c’est un délire visuel et olfactif.
+      </p>
+
+      <p>
+        Peur de te faire chier ? Aucun risque. L’agenda local est blindé :
+        <a href="https://www.nyons.com/sorties-actus/agenda" target="_blank">voir les événements</a>.
+        Entre concerts, expos, ateliers, y’a toujours un truc à vivre. Et dans les alentours, genre les
+        <a href="https://www.dromeprovencale.fr/baronnies/" target="_blank">Baronnies</a>, c’est rando, vélo et paysages de carte postale.
+      </p>
+
+      <p><strong>Nyons</strong>, c’est pas juste un bled. C’est un endroit où tu respires mieux, où tu manges vrai, et où tu retrouves le goût des choses simples. Viens voir par toi-même. Promis, tu vas kiffer. 😎</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 • Un amoureux de la Drôme Provençale</p>
+  </footer>
 </body>
 </html>
